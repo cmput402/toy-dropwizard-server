@@ -10,4 +10,10 @@ public class TestHello {
         assertEquals(result, 15);
     }
 
+
+    @Test
+    public void testFoo2() {
+    int result = 5;
+    assertEquals(result, 5);
+    }
 }

@@ -1,22 +1,29 @@
-name: "dropwizard-ci-pipeline"
-
+name: continuous integration example
 on:
-  push:
-    branches:
-      - main
+push:
+branches:
+- main
+pull_request:
+branches:
+- main
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Install Java
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
+build-and-test:
+runs-on: ubuntu-latest
+defaults:
+run:
 
-      - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew build -x test
-      - name: Run tests
-        run: ./gradlew test
+working-directory: ./
+steps:
+- uses: actions/checkout@v1
+- name: Install Java
+uses: actions/setup-java@v1
+with:
+java-version: 11
+
+- name: Build with Gradle
+run: |
+chmod +x gradlew
+./gradlew build -x test
+
+- name: Run tests
+run: ./gradlew test
