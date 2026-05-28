@@ -16,6 +16,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         return "hello-world";
     }
 
+    // testing the commit
     @Override
     public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
         // nothing to do yet
