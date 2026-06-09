@@ -1,4 +1,4 @@
-version: '3'
+
 services:
     # just a random name.
     oh-my-server:
