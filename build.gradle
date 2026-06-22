@@ -32,11 +32,14 @@ test {
 shadowJar {
     mergeServiceFiles()
     exclude 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.SF'
+
     manifest {
         attributes 'Main-Class': mainClassName
     }
-    archiveName rootProject.name + '-' + rootProject.version + '.jar'
+
+    archiveFileName.set("${rootProject.name}-${rootProject.version}.jar")
 }
+
 
 run {
     args = ['server', 'hello-world.yml']
